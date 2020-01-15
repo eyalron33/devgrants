@@ -133,7 +133,7 @@ The budget requested is 20,000 USD. We plan to use it as follows:
 - Paul Peregud [[ENS+IPFS](http://pepesza.eth), [Github](https://github.com/paulperegud), [Linkedin](https://www.linkedin.com/in/paulperegud/?originalSubdomain=pl)]
 - Krzysztof Lewosz [[Linkedin](https://www.linkedin.com/in/krzysztoflewosz/)]
 
-P.S. we hope future versions of open grants applications will include links to personal Dwebsites.
+P.S. we hope future versions of open grants proposals will include links to personal Dwebsites.
 
 ## Team Website
 
