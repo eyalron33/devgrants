@@ -130,7 +130,7 @@ The budget requested is 20,000 USD. We plan to use it as follows:
 
 - Eyal Ron [[Github](https://github.com/eyalron33/), [Linkedin](https://www.linkedin.com/in/eyal-ron-002358131/)]
 - Muhammed Tanrıkulu [[Github](https://github.com/mdtanrikulu/dwg), [Linkedin](https://www.linkedin.com/in/muhammedtanrikulu/)]
-- Paul Peregud [[ENS+IPFS](pepesza.eth), [Github](https://github.com/paulperegud), [Linkedin](https://www.linkedin.com/in/paulperegud/?originalSubdomain=pl)]
+- Paul Peregud [[ENS+IPFS](http://pepesza.eth), [Github](https://github.com/paulperegud), [Linkedin](https://www.linkedin.com/in/paulperegud/?originalSubdomain=pl)]
 - Krzysztof Lewosz [[Linkedin](https://www.linkedin.com/in/krzysztoflewosz/)]
 
 P.S. we hope future versions of open grants applications will include links to personal Dwebsites.
