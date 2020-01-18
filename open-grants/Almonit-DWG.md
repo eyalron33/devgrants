@@ -14,13 +14,13 @@ The result is simple, CV-style, easily-generated Dwebsites. These Dwebsites are 
 
 This project approaches two problems. The first is the relatively low number of Dwebsites built on top of IPFS. The other is that more than 99% of purchased .eth names have no Dwebsite linked to them.
 
-According to our data, received from ENS, there are around 310,000 .eth names registered, not including subdomains, which increase the number even more. However, our research show that no more than a few hundreds of those .eth names are linked to a Dwebsite. Most of those linked to a Dwebsites offer little value if any, often being simple "hello world" experiments. In [our index](http://almonit.eth.link/#/discover/) we counted so far just over a hundred polished Dwebsites. This shows the existence of a few hundred thousand .eth names waiting for a Dwebsite to link to.
+According to our data, received from ENS, there are around 310,000 .eth names registered, not including subdomains, which increase the number even more. However, our research shows that no more than a few hundreds of those .eth names are linked to a Dwebsite. Most of those linked to a Dwebsites offer little value if any, often being simple "hello world" experiments. In [our index](http://almonit.eth.link/#/discover/) we counted so far just over a hundred polished Dwebsites. This shows the existence of a few hundred thousand .eth names waiting for a Dwebsite to link to.
 
 Our end goal is that any entity owning an ENS name would link it to a Dwebsite. We imagine a future where people exchange .eth names instead of visit cards. We derive inspiration from the increasing popularity of using .eth names instead of wallet addresses.
 
 Our solution provides an easy interface to quickly create a personal IPFS website and connect it to an ENS name. Using simple UI, the process can be as fast as a few minutes.
 
-We intend to provide a full solution, including not only the building part of the personal Dwebsite, but also registering it in ENS and pinning it with at least one IPFS gateway. 
+We intend to provide a full solution, including not only the building part of the personal Dwebsite, but also registering it in ENS and connecting it to an IPFS pinning service. 
 
 ## Value
 We see Dwebsites build on top of IPFS as one key use-case of IPFS technology. 
@@ -42,7 +42,7 @@ For this project we deliver two items.
 We already created a mock-up demonstrating the functionality of the software and service being delivered. See [details in Milestones](#Milestones). 
 
 ## Development Roadmap
-The project contains seven different components. We first describe the different components, following by breaking them down into roadmap and milestones.
+The project contains six different components. We first describe the different components, following by breaking them down into roadmap and milestones.
 
 The components composing the project are:
 1. Progressive WebApp (React, NodeJS, Hugo).
@@ -50,20 +50,18 @@ The components composing the project are:
 3. Backend (node.js).
 4. Web3 component (Metamask etc.).
 5. ENS component.
-6. Ethereum smart contract (Vyper).
 7. IPFS backend (Rust or node.js).
 
 ### Milestones
 **Remark on the division of work**: We are a team of four people, all do a bit of everything. The names written here are of the person leading each specific milestone, but please keep in mind the whole team contributes in all stages of the project.
 
-The project contains five milestones. We list them in the order of delivery. Next to each milestone we list the development time. The real date will be determined based on the starting date of the project.
+The project contains four milestones. We list them in the order of delivery. Next to each milestone we list the development time. The real date will be determined based on the starting date of the project.
 1. Progressive WebApp and Static website framework , first part of backend (5-7 weeks): led by *Muhammed Tanrıkulu*.
-2. Web3 component (1 week): led by *Muhammed Tanrıkulu*.
-3. Smart contract and ENS components (1-2 weeks): led by *Paul Peregud*.
-4. IPFS component (1 week): led by *Eyal Ron*.
-5. Integrating the components into DWG (2 weeks): led by *Eyal Ron* and *Krzysztof Lewosz*.
+2. Web3 and ENS components (1-2 weeks): led by *Paul Peregud* and *Muhammed Tanrıkulu*.
+3. IPFS component (1-2 weeks): led by *Eyal Ron*.
+4. Integrating the components into DWG (2 weeks): led by *Eyal Ron* and *Krzysztof Lewosz*.
 
-The total development period is 10-13 weeks.
+The total development period is 9-13 weeks.
 
 ### Detailed description of every milestone
 
@@ -76,7 +74,7 @@ The Dwebsites are created using Hugo framework for generating static websites, h
 
 The backend (NodeJS) in this part manages the transition between the different UI screens including communication with the Hugo framework.
 
-Below is functionality in details, including mock-up pictures to demonstrate it.
+Below is the functionality in details, including mock-up pictures to demonstrate it.
 - **Welcome screen**. In this screen users connect to their Ethereum wallet, enter their .eth name and validate it. The page links to instructions for purchasing .eth names in case the users have none.
 <kbd><img src="http://almonit.club/application/1Welcome.png" /></kbd>
 - **Theme selection screen**. In this screen users select a theme for their Dwebsite. We intend to support initially at least four different Hugo themes.
@@ -88,22 +86,19 @@ Below is functionality in details, including mock-up pictures to demonstrate it.
 - **Preview screen**. In this screen the users see a preview of the Dwebsite. If they choose to publish, DWG will use the ENS and IPFS components to publish the Dwebsite.
 <kbd><img src="http://almonit.club/application/5result.png" /></kbd>
 
-#### Web3 component (1 week)
-This milestone is used in the first step of the DWG, verifying users ENS domain, and in the last step, writing the IPFS CID as a contenthash to the .eth name.
+#### Web3 and ENS components (1-2 week)
+This milestone is used in the first step of the DWG, verifying users ENS domain, and in the last step, setting the IPFS CID as the contenthash of the ENS domain of the user.
 
 The integration to wallet (Metamask etc.) is done via web3.js. Based on the Ethereum account we add an identicon to the upper right corner of DWG (see mock-up pictures above) to indicate user account in charge.
 
+The interaction with ENS is done via web3.js using ENS contract ABI.
+
 We create for the development process a local Truffle environment to test this component and the next one.
 
-#### Smart contract and ENS components (1-2 weeks)
-This milestone creates an Ethereum smart contract communicating with ENS contract, setting the IPFS CID as the contenthash of the ENS domain of the user. An additional option would be for service providers of DWG to charge a small fee for generating the Dwebsites, in order to cover the costs of running the service for the long term.
-
-This milestone include functional tests to check interoperability with ENS contracts.
-
-#### IPFS component (1 week)
+#### IPFS component (1-2 week)
 This milestone connects DWG to IPFS, offering two functionalities. 
 1. Calculating the Dwebsite IPFS CID.
-2. Pinning the Dwebsite in at least one IPFS gateways. We expect those websites to have small size, so pinning should be easy to implement.
+2. Pinning the Dwebsite using an existing IPFS pinning service (Infura, Pinata or other) or possibliy a pinning service we provide.
 
 It will be decided at a later stage if this component is written in Rust or node.js.
 
@@ -122,7 +117,7 @@ The budget requested is 20,000 USD. We plan to use it as follows:
 
 **Operation**. Almonit will run DWG as a service for a period of at least 12 months.
 **Maintenance**. Almonit will maintain the codebase for at least 12 months.
-**Upgrade**. Almonit plans to extend DWG functionality with time, depends on the users feedback after the release.
+**Upgrade**. Almonit plans to extend DWG functionality with time, depends on users feedback after the release.
 
 # Team
 
